@@ -1,17 +1,1275 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-  <title>horr.id</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <title>horr.id</title>
+    <meta name="description"
+        content="horr.id is a privacy-first platform offering biolink pages, anonymous image hosting, encrypted emails, and more. Your data, your rules.">
+    <meta name="keywords"
+        content="biolink, image hosting, anonymous emails, privacy tools, secure image host, link in bio, horr.id">
+    <meta property="og:title" content="horr.id">
+    <meta property="og:description" content="the world is your oyster">
+    <meta name="theme-color" content="##393A41">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://horr.id">
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          "name": "horr.id",
+          "url": "https://horr.id",
+          "description": "horr.id is a privacy-first platform offering biolink pages, anonymous image hosting, encrypted emails, and more. Your data, your rules.",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "All",
+          "inLanguage": "en",
+          "offers": [
+            {
+              "@type": "Offer",
+              "name": "Basic Plan",
+              "price": "10",
+              "priceCurrency": "USD",
+              "description": "Basic plan with Profile Page, Social Integrations, and up to 5 Collectibles",
+              "url": "https://horr.id/register"
+            },
+            {
+              "@type": "Offer",
+              "name": "Premium Plan",
+              "price": "20",
+              "priceCurrency": "USD",
+              "description": "Premium plan with full features including Email, Image Hosting, and Priority Support",
+              "url": "https://horr.id/register"
+            }
+          ],
+          "keywords": [
+            "biolink",
+            "image hosting",
+            "anonymous emails",
+            "privacy tools",
+            "secure image host",
+            "link in bio"
+          ]
+        }
+    </script>
+    <style>
+        @font-face {
+            font-family: 'regular';
+            src: url('https://horr.id/assets/fonts/regular.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'bold';
+            src: url('https://horr.id/assets/fonts/bold.woff2') format('woff2');
+            font-weight: bold;
+            font-style: normal;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'regular', Arial, sans-serif;
+        }
+
+        body {
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow-x: hidden;
+            background-color: #18191E;
+        }
+
+        .container {
+            width: 1280px;
+            margin: 0 auto;
+            position: relative;
+            border-left: 2px solid #212225;
+            border-right: 2px solid #212225;
+        }
+
+        .header {
+            position: relative;
+            width: 1280px;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 0;
+            border: 2px solid #212225;
+            border-top: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 99;
+            padding: 0px;
+            padding-left: 50px;
+            padding-right: 50px;
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            padding: 20px 0;
+            width: 100%;
+            margin: 0 auto;
+            font-family: 'bold', Arial, sans-serif;
+        }
+
+        .header-spacer {
+            height: 70px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 22px;
+            font-weight: 600;
+        }
+
+        .nav {
+            display: flex;
+            gap: 34px;
+            margin: 0 auto;
+            /* This pushes the nav to the center */
+        }
+
+        .nav a {
+            color: white;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .nav a:hover {
+            color: #D2E1FE;
+        }
+
+
+        .button {
+            border: 2px solid #f1f1f1;
+            background-color: #fff;
+            color: #212225;
+            font-weight: 500;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+        }
+
+        .secondary-button {
+            background-color: #3D5687;
+            border: 2px solid #3D5687;
+            color: #D2E1FE;
+            font-weight: 500;
+            padding: 10px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .secondary-button:hover {
+            background-color: #3D5687;
+            transform: translateY(-2px);
+        }
+
+        .section-divider {
+            height: 2px;
+            width: 100%;
+            background-color: #212225;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-section {
+            position: relative;
+            background-color: #18191E;
+            overflow: hidden;
+            border-bottom: 2px solid #212225;
+        }
+
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 0;
+            position: relative;
+            z-index: 1;
+            margin: 50px auto 0;
+            min-height: 85vh;
+            width: 1280px;
+        }
+
+        .hero-lighting {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 120%, rgba(53, 71, 109, 0.6) 0%, rgba(0, 0, 0, 0) 90%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+            padding: 0 1rem;
+        }
+
+        .hero h1 {
+            font-size: 4.5rem;
+            font-weight: 400;
+            line-height: 1.1;
+            text-align: center;
+            margin-bottom: 1.25rem;
+            font-family: 'bold', Arial, sans-serif;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+            max-width: 14ch;
+            width: 100%;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 3vw, 1.4rem);
+            color: #c2c5ce;
+            width: 100%;
+            max-width: 500px;
+            line-height: 1.6;
+            margin-bottom: 1.875rem;
+            text-align: center;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 2.5rem;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .socials-section {
+            position: relative;
+            background-color: #18191E;
+            overflow: hidden;
+            padding: 40px 0 80px;
+            background-size: 50px 50px;
+        }
+
+        .socials {
+            position: relative;
+            z-index: 1;
+            width: 1280px;
+            margin: 0 auto;
+            padding: 60px 0;
+        }
+
+        .socials-heading {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .socials-heading h2 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .socials-heading p {
+            font-size: 18px;
+            color: #a8a9bc;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .socials-grid {
+            display: flex;
+            max-width: 80%;
+            margin: 0 auto;
+            padding: 0 30px;
+            gap: 30px;
+        }
+
+        .social-lighting {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 120%, #2a73cb1d 0%, rgba(0, 0, 0, 0) 90%);
+            z-index: 999;
+            pointer-events: none;
+        }
+
+        .social-embed {
+            flex: 1;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            background-color: #2122253c;
+            border: 2px solid #1b1b1b44;
+            max-width: calc(1000% - 15px);
+            height: 350px;
+        }
+
+        .social-header {
+            display: flex;
+            align-items: center;
+            margin: 50px;
+            background-color: #2122253c;
+            border: 2px solid #1b1b1b44;
+            padding: 20px;
+            border-radius: 10px;
+            padding-bottom: 30px;
+            margin-bottom: 0;
+        }
+
+        .social-avatar {
+            width: 50px;
+            height: 50px;
+            background-color: #4CAF50;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            margin-right: 20px;
+            color: white;
+            font-size: 24px;
+        }
+
+        .social-title {
+            flex-grow: 1;
+            font-size: 22px;
+            font-weight: 600;
+            color: white;
+        }
+
+        .social-subtitle {
+            font-size: 18px;
+            font-weight: 400;
+            margin-top: 5px;
+            color: #a8a9bc;
+        }
+
+        .social-check {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4CAF50;
+            font-size: 24px;
+        }
+
+        .social-feature h2 {
+            padding: 50px;
+            padding-bottom: 0;
+            padding-top: 0;
+            font-size: 32px;
+            font-weight: 600;
+            color: white;
+        }
+
+        .social-feature p {
+            padding-top: 0;
+            padding-bottom: 0;
+            padding: 50px;
+            font-size: 18px;
+            line-height: 1.5;
+            color: #a8a9bc;
+        }
+
+        .testimonial-embed {
+            background-color: #101010;
+            border-radius: 60px;
+            padding: 30px;
+            margin-bottom: 30px;
+            border: 1px solid #2a2a2a;
+        }
+
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin: 50px;
+            background-color: #2122253c;
+            border: 2px solid #1b1b1b44;
+            padding: 20px;
+            border-radius: 50px;
+            padding-bottom: 30px;
+            margin-bottom: 0;
+        }
+
+        .testimonial-avatar {
+            width: 50px;
+            height: 50px;
+            background-color: #4CAF50;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            margin-right: 20px;
+            color: white;
+            font-size: 24px;
+        }
+
+        .testimonial-title {
+            flex-grow: 1;
+            font-size: 22px;
+            font-weight: 600;
+            color: white;
+        }
+
+        .testimonial-subtitle {
+            font-size: 18px;
+            font-weight: 400;
+            margin-top: 5px;
+            color: #a8a9bc;
+        }
+
+        .testimonial-feature {
+            padding: 0 50px 50px 50px;
+        }
+
+        .testimonial-feature p {
+            font-size: 18px;
+            line-height: 1.5;
+            color: #a8a9bc;
+        }
+
+
+        .socials-grid {
+            display: flex;
+            flex-direction: column;
+            max-width: 80%;
+            margin: 0 auto;
+            padding: 0 30px;
+            gap: 30px;
+        }
+
+        .socials-row {
+            display: flex;
+            gap: 30px;
+            width: 100%;
+        }
+
+        .socials-row .social-embed {
+            flex: 1;
+            width: calc(50% - 15px);
+        }
+
+        .wide-embed {
+            width: 100%;
+        }
+
+        .footer {
+            position: relative;
+            background-color: #18191E;
+            border-top: 2px solid #212225;
+            padding: 60px 0 30px;
+            color: #a8a9bc;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            margin: 0 auto;
+            max-width: 1280px;
+            padding: 0 50px;
+            flex-wrap: wrap;
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 40px;
+            font-family: 'bold', Arial, sans-serif;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 60px;
+        }
+
+        .footer-column {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-column h3 {
+            color: white;
+            font-size: 18px;
+            margin-bottom: 20px;
+            font-family: 'bold', Arial, sans-serif;
+        }
+
+        .footer-column a {
+            color: #a8a9bc;
+            text-decoration: none;
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column a:hover {
+            color: #D2E1FE;
+        }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 50px auto 0;
+            max-width: 1280px;
+            padding: 20px 50px 0;
+            border-top: 1px solid #212225;
+        }
+
+        .footer-copyright {
+            font-size: 14px;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-social a {
+            color: #a8a9bc;
+            font-size: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            color: #D2E1FE;
+        }
+
+        .pricing-section {
+            position: relative;
+            background-color: #18191E;
+            overflow: hidden;
+            padding: 40px 0 80px;
+        }
+
+        .pricing-lighting {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% 0%, #833ab44d 0%, rgba(0, 0, 0, 0) 90%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+
+        .pricing {
+            position: relative;
+            z-index: 2;
+            width: 1280px;
+            margin: 0 auto;
+            padding: 60px 0;
+        }
+
+        .pricing-heading {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .pricing-heading h2 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: white;
+        }
+
+        .pricing-heading p {
+            font-size: 18px;
+            color: #a8a9bc;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .pricing-grid {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            flex: 1;
+            max-width: 350px;
+            background-color: #212225;
+            border: 2px solid #2a2a2a;
+            border-radius: 10px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .pricing-card.premium {
+            border-color: #833ab44d;
+        }
+
+        .premium-tag {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #833ab4;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .pricing-card-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .pricing-card-header h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .price {
+            font-size: 42px;
+            font-weight: 700;
+            color: white;
+        }
+
+        .price span {
+            font-size: 16px;
+            font-weight: 400;
+            color: #a8a9bc;
+        }
+
+        .pricing-features {
+            margin-bottom: 30px;
+            flex-grow: 1;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .feature-icon {
+            color: #4CAF50;
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .feature-icon-disabled {
+            color: #a8a9bc;
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+
+        .feature-disabled {
+            color: #a8a9bc;
+        }
+
+        .pricing-button {
+            display: block;
+            text-align: center;
+            background-color: #212225;
+            border: 2px solid #2a2a2a;
+            color: white;
+            padding: 12px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-button:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+    <style>
+        @media (max-width: 1280px) {
+
+            .container,
+            .header,
+            .hero,
+            .socials,
+            .pricing {
+                width: 100%;
+            }
+
+            .hero h1 {
+                font-size: 3.5rem;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .socials-grid,
+            .pricing-grid {
+                max-width: 90%;
+            }
+
+            .footer-content {
+                flex-direction: column;
+            }
+
+            .footer-links {
+                margin-top: 20px;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .header-content {
+                flex-direction: row;
+                gap: 15px;
+            }
+
+            .nav {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+            }
+
+            .hero {
+                padding: 60px 20px;
+                min-height: auto;
+                height: 85vh;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-buttons {
+                flex-direction: row;
+            }
+
+            .socials-row {
+                flex-direction: column;
+            }
+
+            .socials-row .social-embed {
+                width: 100%;
+            }
+
+            .pricing-grid {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .pricing-card {
+                max-width: 100%;
+                width: 90%;
+                margin-bottom: 30px;
+            }
+
+            .footer-links {
+                gap: 30px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .header {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .socials-heading h2,
+            .pricing-heading h2 {
+                font-size: 32px;
+            }
+
+            .socials-grid,
+            .pricing-grid {
+                max-width: 95%;
+                padding: 0 15px;
+            }
+
+            .social-header,
+            .testimonial-header {
+                margin: 30px;
+                padding: 15px;
+            }
+
+            .social-feature p,
+            .testimonial-feature p {
+                padding: 30px;
+                font-size: 16px;
+            }
+
+            .footer-content,
+            .footer-bottom {
+                padding: 0 20px;
+            }
+
+            .footer-column {
+                width: 100%;
+            }
+        }
+
+        @media (max-height: 700px) {
+            .hero {
+                min-height: auto;
+                padding: 40px 0;
+            }
+        }
+
+        .hamburger-menu {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+            z-index: 100;
+        }
+
+        .hamburger-menu span {
+            display: block;
+            height: 3px;
+            width: 100%;
+            border-radius: 3px;
+            background: white;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 80%;
+            max-width: 300px;
+            height: 100vh;
+            background-color: #18191E;
+            border-left: 2px solid #212225;
+            z-index: 99;
+            display: flex;
+            flex-direction: column;
+            padding: 80px 40px 40px;
+            transition: right 0.3s ease;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .mobile-nav.active {
+            right: 0;
+        }
+
+        .mobile-nav a {
+            color: white;
+            font-size: 1.2rem;
+            text-decoration: none;
+            margin-bottom: 25px;
+            transition: color 0.3s ease;
+            display: block;
+        }
+
+        .mobile-nav a:hover {
+            color: #D2E1FE;
+        }
+
+        .mobile-nav .signup-button {
+            margin-top: 20px;
+            padding: 12px 20px;
+            background-color: #fff;
+            color: #18191E;
+            border-radius: 5px;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .mobile-nav .signup-button:hover {
+            background-color: #D2E1FE;
+            color: #18191E;
+            transform: translateY(-2px);
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 98;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .overlay.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .hamburger-menu.active span:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+
+        .hamburger-menu.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger-menu.active span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+        }
+
+        @media (max-width: 767px) {
+            .nav {
+                display: none;
+            }
+
+            .header-content .button {
+                display: none;
+            }
+
+            .hamburger-menu {
+                display: flex;
+            }
+
+            .header-content {
+                justify-content: space-between;
+                flex-direction: row;
+            }
+        }
+    </style>
 </head>
+
 <body>
-  <p>:current *main* active domains:</p>
-  <ul>
-    <li><a href="https://nightco.re">nightco.re</a></li>
-    <li><a href="https://depre.ss">depre.ss</a></li>
-    <li><a href="https://oppre.ss">oppre.ss</a></li>
-    <li><a href="https://horr.id">horr.id</a></li>
-  </ul>
-  <p>The site will soon be back up once rewrite is finished with parts of it being open source</p>
-  <p><a href="https://discord.gg/ic3">https://discord.gg/ic3</a></p>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <span>horr.id</span>
+            </div>
+            <nav class="nav">
+                <a href="#socials">Features</a>
+                <a href="https://discord.gg/ic3">Support</a>
+                <a href="https://discord.gg/ic3">Pricing</a>
+            </nav>
+            <a href="/register" class="button" style="text-decoration: none;">Sign Up</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="hero-section">
+            <div class="hero-lighting"></div>
+            <section class="hero">
+                <div class="hero-content">
+                    <h1>Your Digital Presence Made Simple</h1>
+                    <p>Premium, privacy focused solutions for your portfolio, images, emails & much more</p>
+                    <div class="hero-buttons">
+                        <a href="/register" class="button"
+                            style="text-decoration: none; background-color: white; border: none; color: #212225;">Sign
+                            Up</a>
+                        <a href="https://discord.gg/ic3" class="secondary-button" style="text-decoration: none;"><i
+                                class="fa-brands fa-discord" style="padding-right: 10px;"></i>Join Discord</a>
+                    </div>
+                </div>
+            </section>
+            <h2
+                style="align-items: center; justify-content: center; display: flex; margin-bottom: 50px; margin-top: -50px; font-size: 1rem;">
+                Scroll down to learn more</h2>
+        </div>
+        <div class="section-divider"></div>
+        <div class="pricing-section">
+            <div class="pricing-lighting"></div>
+            <section class="pricing">
+                <div class="pricing-heading">
+                    <h2>Choose Your Plan</h2>
+                    <p>Select the perfect plan that suits your needs</p>
+                </div>
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <div class="pricing-card-header">
+                            <h3>Basic</h3>
+                            <div class="price">$10<span>/LIFETIME!</span></div>
+                        </div>
+                        <div class="pricing-features">
+                            <div class="feature-item">
+                                <i class="fa-solid fa-check feature-icon"></i>
+                                <span>Profile Page</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fa-solid fa-check feature-icon"></i>
+                                <span>Social integrations</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fa-solid fa-check feature-icon"></i>
+                                <span>Upto 5 collectibles</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fa-solid fa-xmark feature-icon-disabled"></i>
+                                <span class="feature-disabled">Email</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fa-solid fa-xmark feature-icon-disabled"></i>
+                                <span class="feature-disabled">Image Host</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fa-solid fa-xmark feature-icon-disabled"></i>
+                                <span class="feature-disabled">Priority support</span>
+                            </div>
+                        </div>
+                        <a href="/register" class="pricing-button">Get Started</a>
+                    </div>
+                    <div class="pricing-card premium">
+                        <div class="pricing-card-header">
+                            <div class="premium-tag">Recommended</div> <!-- Because Evie is a jew -->
+                            <h3>Premium</h3>
+                            <div class="price">$20<span>/LIFETIME!</span></div>
+                        </div>
+                        <div class="pricing-features">
+                            <div class="feature-item">
+                                <i class="fa-solid fa-check feature-icon"></i>
+                                <span>Profile Page</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fa-solid fa-check feature-icon"></i>
+                                <span>Social integrations</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fa-solid fa-check feature-icon"></i>
+                                <span>Upto 10 collectibles</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fa-solid fa-check feature-icon"></i>
+                                <span>Email</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fa-solid fa-check feature-icon"></i>
+                                <span>Image Host</span>
+                            </div>
+                            <div class="feature-item">
+                                <i class="fa-solid fa-check feature-icon"></i>
+                                <span>Priority support</span>
+                            </div>
+                        </div>
+                        <a href="/register" class="pricing-button premium-button">Get Premium</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="section-divider"></div>
+        <div class="socials-section" id="socials">
+            <div class="social-lighting"></div>
+            <section class="socials">
+                <div class="pricing-heading">
+                    <h2>What we provide, what people say</h2>
+                    <p>Premium features & thoughts of real users</p>
+                </div>
+                <div class="socials-grid">
+                    <div class="socials-row">
+                        <div class="social-embed">
+                            <div class="social-header">
+                                <div class="social-avatar" style="background-color: #5E69F2;">
+                                    <i class="fa-solid fa-plug"></i>
+                                </div>
+                                <div class="social-title">
+                                    Integrations
+                                    <div class="social-subtitle">Connect your favourite socials</div>
+                                </div>
+                            </div>
+                            <div class="social-feature">
+                                <p>Connect your favourite socials to the site, display your profiles, activity, status &
+                                    much more using oAuth2 technology</p>
+                            </div>
+                        </div>
+
+                        <div class="social-embed">
+                            <div class="social-header">
+                                <div class="social-avatar" style="background-color: #5E69F2;">
+                                    <i class="fa-solid fa-user"></i>
+                                </div>
+                                <div class="social-title">
+                                    Shaun
+                                </div>
+                            </div>
+                            <div class="social-feature">
+                                <p>i was going through a dark place in my life but ever since i got horr.id, things
+                                    have been better! thank you </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span>horr.id</span>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h3>Product</h3>
+                        <a href="/">Features</a>
+                        <a href="/">Pricing</a>
+                        <a href="/">FAQ</a>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Support</h3>
+                        <a href="https://discord.gg/ic3">Discord</a>
+                        <a href="mailto:support@horr.id">Contact</a>
+                        <a href="mailto:support@horr.id">Help Center</a>
+                    </div>
+                    <div class="footer-column">
+                        <h3>Legal</h3>
+                        <a href="/privacy">Privacy</a>
+                        <a href="/terms">Terms</a>
+                        <a href="/cookies">Cookies</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-copyright">
+                    &copy; 2025 horr.id. All rights reserved.
+                </div>
+                <div class="footer-social">
+                    <a href="https://x.com/masochi_st"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="https://discord.gg/ic3"><i class="fa-brands fa-discord"></i></a>
+                    <a href="https://github.com/gasps"><i class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
+        </footer>
 </body>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let e = [
+            { icon: "fa-solid fa-plug", color: "#5E69F2", title: "Integrations", subtitle: "Connect your favourite socials", feature: "Connect your favourite socials to the site, display your profiles, activity, status & much more using oAuth2 technology" },
+            { icon: "fa-solid fa-user", color: "#333333", title: "Biolink", subtitle: "Your portfolio", feature: "Showcase all your socials, description about yourself, your design of choise & etc, fully customizable" },
+            { icon: "fa-solid fa-at", color: "#5E69F2", title: "Collectibles", subtitle: "Collect & display", feature: "Claim & display upto 10 collectible users, even use them on emails!" },
+            { icon: "fa-solid fa-envelope", color: "#e13e3e", title: "Email", subtitle: "Fully secure emails", feature: "Use our completely safe & secure email provider for maximum security, with a no-log policy. Choose from over 10+ domains" },
+            { icon: "fa-solid fa-image", color: "#1b95f0", title: "Image host", subtitle: "Fast, nice, easy", feature: "Upload your images to our server and access them from anywhere else, images are end-to-end encrypted so only you can see them" },],
+
+            t = [
+                { avatar: "fa-solid fa-user", color: "#5E69F2", name: "Shaun", subtitle: "10/10", text: "i was going through a dark place in my life but ever since i got horr.id, things have been better! thank you" },
+                { avatar: "fa-solid fa-user", color: "#e13e3e", name: "Moom", subtitle: "9/10", text: "i switched from og.email to horr.id and instantly noticed the details, it was WAY better. Thank you for saving my life." },
+                { avatar: "fa-solid fa-user", color: "#1b95f0", name: "James", subtitle: "10/10", text: "i dislike my life with a passion but after i recieved an invite to horr.id by a very cool person i was met with true joy and happiness. Thx Uuu >.<" },
+                { avatar: "fa-solid fa-user", color: "#e13e3e", name: "Shy", subtitle: "10/10", text: "i struggled with my biolink services always getting breached but horr.id came and secured my information" },
+                ,
+            ],
+            a = document.createElement("style"); function i(e, t) { let a = document.querySelector(e); if (!a) return; let i = a.querySelector("div:not(.fade-out)"); i && (i.classList.add("fade-out"), setTimeout(() => { i.remove() }, 600)); let l = document.createElement("div"); l.textContent = t, l.classList.add("fade-in"), a.appendChild(l) } function l(e, t) { if (!e) return; let a = e.querySelector("i"); a && (a.classList.add("fade-out"), setTimeout(() => { a.remove() }, 600)); let i = document.createElement("i"); i.className = t + " fade-in", i.style.position = "absolute", i.style.width = "100%", i.style.height = "100%", i.style.display = "flex", i.style.alignItems = "center", i.style.justifyContent = "center", i.style.top = "0", i.style.left = "0", e.appendChild(i) } a.textContent = `
+        .social-title, .social-subtitle, .social-feature p {
+            position: relative;
+        }
+        
+        .social-avatar {
+            transition: background-color 0.6s ease;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .social-avatar i {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .content-wrapper {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.6s ease forwards;
+        }
+        
+        .fade-out {
+            animation: fadeOut 0.6s ease forwards;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+        
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeOut {
+            0% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+        }
+    `, document.head.appendChild(a); let o = 0, r = 0; !function e() { let t = document.querySelectorAll(".social-embed")[0]; if (t) { let a = t.querySelector(".social-title"); if (a) { let i = a.childNodes[0].nodeValue.trim(); a.removeChild(a.childNodes[0]); let l = document.createElement("div"); l.className = "content-wrapper title-wrapper", l.style.height = "auto"; let o = document.createElement("div"); o.textContent = i, l.appendChild(o), a.insertBefore(l, a.firstChild) } let r = t.querySelector(".social-subtitle"); if (r) { let n = r.innerHTML; r.innerHTML = ""; let s = document.createElement("div"); s.className = "content-wrapper subtitle-wrapper"; let c = document.createElement("div"); c.innerHTML = n, s.appendChild(c), r.appendChild(s) } let d = t.querySelector(".social-feature p"); if (d) { let u = d.innerHTML; d.innerHTML = ""; let p = document.createElement("div"); p.className = "content-wrapper feature-wrapper"; let f = document.createElement("div"); f.innerHTML = u, p.appendChild(f), d.appendChild(p) } } let m = document.querySelectorAll(".social-embed")[1]; if (m) { let y = m.querySelector(".social-title"); if (y) { let h = y.innerHTML; y.innerHTML = ""; let $ = document.createElement("div"); $.className = "content-wrapper testimonial-title-wrapper"; let v = document.createElement("div"); v.innerHTML = h, $.appendChild(v), y.appendChild($) } let b = m.querySelector(".social-subtitle"); if (b) { let w = b.innerHTML; b.innerHTML = ""; let g = document.createElement("div"); g.className = "content-wrapper testimonial-subtitle-wrapper"; let C = document.createElement("div"); C.innerHTML = w, g.appendChild(C), b.appendChild(g) } let _ = m.querySelector(".social-feature p"); if (_) { let E = _.innerHTML; _.innerHTML = ""; let L = document.createElement("div"); L.className = "content-wrapper testimonial-feature-wrapper"; let M = document.createElement("div"); M.innerHTML = E, L.appendChild(M), _.appendChild(L) } } let S = document.querySelectorAll(".social-avatar"); S.forEach(e => { let t = e.querySelector("i"); t && (t.style.position = "absolute", t.style.width = "100%", t.style.height = "100%", t.style.display = "flex", t.style.alignItems = "center", t.style.justifyContent = "center", t.style.top = "0", t.style.left = "0") }) }(), setInterval(function t() { o = (o + 1) % e.length; let a = e[o], r = document.querySelector(".social-avatar"); r && (r.style.backgroundColor = a.color, l(r, a.icon)), i(".title-wrapper", a.title), i(".subtitle-wrapper", a.subtitle), i(".feature-wrapper", a.feature) }, 3e3), setInterval(function e() { r = (r + 1) % t.length; let a = t[r], o = document.querySelectorAll(".social-avatar")[1]; o && (o.style.backgroundColor = a.color, l(o, a.avatar)), i(".testimonial-title-wrapper", a.name), i(".testimonial-subtitle-wrapper", a.rating), i(".testimonial-feature-wrapper", a.text) }, 3e3)
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+        let e = document.createElement("div"); e.className = "hamburger-menu", e.innerHTML = `
+        <span></span>
+        <span></span>
+        <span></span>
+    `; let t = document.createElement("div"); t.className = "mobile-nav"; let a = Array.from(document.querySelector(".nav").children), s = ""; a.forEach(e => { s += e.outerHTML }), ["Features", "Support", "Pricing"].forEach(e => { s.includes(e) || (s += `<a href="#${e.toLowerCase()}">${e}</a>`) }); let n = document.querySelector(".button"), i = ""; s += i = n ? `<a href="${n.getAttribute("href") || "#signup"}" class="signup-button">${n.textContent || "Sign Up"}</a>` : '<a href="#signup" class="signup-button">Sign Up</a>', t.innerHTML = s; let c = document.createElement("div"); c.className = "overlay"; let l = document.querySelector(".header-content"); l.appendChild(e), document.body.appendChild(t), document.body.appendChild(c), e.addEventListener("click", function () { e.classList.toggle("active"), t.classList.toggle("active"), c.classList.toggle("active"), document.body.style.overflow = t.classList.contains("active") ? "hidden" : "" }); let o = t.querySelectorAll("a"); o.forEach(a => { a.addEventListener("click", function () { e.classList.remove("active"), t.classList.remove("active"), c.classList.remove("active"), document.body.style.overflow = "" }) }), c.addEventListener("click", function () { e.classList.remove("active"), t.classList.remove("active"), c.classList.remove("active"), document.body.style.overflow = "" })
+    });</script>
+
 </html>
